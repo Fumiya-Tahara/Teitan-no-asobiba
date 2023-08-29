@@ -1,6 +1,8 @@
 "use client"
 import { useState, useEffect } from 'react';
 import './App.scss';
+import Image from "next/image";
+import localImage from './components/16-.jpg'
 
 
 interface TypingData {
@@ -16,7 +18,11 @@ function TypingAPi(): TypingData[] {
     {
         sentencejp: "二酸化炭素を減らしましょう",
         sentencero: "nisannkatannsowoherasimashou",
-    }
+    },
+    {
+        sentencejp: "グレタさんを敬いましょう",
+        sentencero: "guretasannwouyamaimashou",
+    },
   ];
   
   return outputDataList;
@@ -35,6 +41,9 @@ const [position, setPosition] = useState<number>(0); //位置情報をstateに�
 
 const [typo, setTypo] = useState<number[]>(new Array(0));//打ち間違えた位置の配列
 
+let quizIndex : number = 0; //クイズの数
+let missType : number = 0; //ミスタイプの数
+
 const handleKey = (e: React.KeyboardEvent<HTMLDivElement>) => {
     if (typing) {//入力可能のとき
     let textSpans = document.querySelector("#textbox")!.children;//文字の配列を取得,!を追加することでnullでないときのみ動くようにする
@@ -47,13 +56,16 @@ const handleKey = (e: React.KeyboardEvent<HTMLDivElement>) => {
             setConsonants(consonants.replace(e.key, ""));
         }
         //現在の文字を入力済みとする
-        textSpans[position].classList.add("typed-letters");
         textSpans[position].classList.remove("current-letter");
+        textSpans[position].classList.add("typed-letters");
         if (position <= TypingArray[TypingCount].sentencero.length - 2) {//まだ入力していない文字があるとき
             textSpans[position + 1].className = "current-letter";
             setPosition(position + 1);
         } else {//入力不可にする
-            setTyping(false);
+            quizIndex++;
+            missType += typo.length;
+            console.log(quizIndex);
+            console.log(missType);
             refresh();
         }
         } else {//間違えたキーを入力したとき
@@ -72,11 +84,6 @@ const handleKey = (e: React.KeyboardEvent<HTMLDivElement>) => {
     }
 };
 
-// const typingToggle = () => setTyping(typing ? false : true);
-
-// useEffect(() => {
-//     console.log("useEffectが実行された");
-// },[typing]);
 
 const refresh = () => {
     //文字の配列を取得
@@ -91,9 +98,9 @@ const refresh = () => {
 };
 
 return (
-    <div className='flex justify-center'>
-        <div className="flex flex-col justify-center items-center border border-black w-[800px] h-[250px] mt-[200px]">
-            <div className='text-center text-[50px]'>{TypingArray[TypingCount].sentencejp}</div>
+    <div className='flex justify-center h-screen bg-lime-300'>
+        <div className="flex flex-col justify-center items-center border-[3px] border-black w-[900px] h-[580px] mt-[100px] bg-white">
+            <div className='text-center text-[50px] mt-[80px]'>{TypingArray[TypingCount].sentencejp}</div>
             <div
                 onKeyDown={e => handleKey(e)}
                 className='flex flex-col justify-center items-center'>
@@ -123,8 +130,8 @@ return (
                     </div>
                 </div>
                 <button onClick={() => setTyping(true)} className='bg-blue-500 hover:bg-blue-300 w-[80px] py-2 rounded text-[20px] mt-[15px] mb-[30px]'>{typing ? "タイプ中" : "はじめ"}</button>
-                {/* <button onClick={refresh} className='bg-blue-500 hover:bg-blue-300 w-[80px] py-2 rounded text-[20px] mt-[15px] mb-[30px]'>つぎへ</button> */}
             </div>
+            <Image src={localImage} alt="image" className="h-[270px] w-[320px] mt-[-20px]"/>
         </div>
     </div>
     );
