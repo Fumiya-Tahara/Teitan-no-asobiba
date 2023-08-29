@@ -1,74 +1,85 @@
-/* owner.css */
-body {
-    font-family: 'Helvetica Neue', sans-serif;
-    background-color: #f4f4f4;
-  }
-  
-  .main {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-  }
-  
-  .news_add {
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 30px;
-  }
-  
-  .news_add .input_title,
-  .news_add .input_text {
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box;
-    font-size: 16px;
-  }
-  
-  .news_add .input_text {
-    height: 150px;
-  }
-  
-  .news_add input[type="submit"] {
-    background-color: #007BFF;
-    color: #fff;
-    border: none;
-    padding: 12px 24px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
-  }
-  
-  .news_add input[type="submit"]:hover {
-    background-color: #0056b3;
-  }
-  
-  /* Additional styles for visual enhancement */
-  .news_add h1 {
-    font-size: 28px;
-    margin-bottom: 20px;
-    color: #333;
-  }
-  
-  .news_add p {
-    font-size: 18px;
-    margin-bottom: 10px;
-    color: #555;
-  }
-  
-  /* Add a subtle gradient background */
-  .news_add {
-    background-image: linear-gradient(to bottom, #f5f5f5, #fff);
-  }
-  
-  /* Add a border to the submit button on hover */
-  .news_add input[type="submit"]:hover {
-    border: 1px solid #0056b3;
-  }
-  
-  /* Add more styles as needed */
-  
+/* styles.css */
+/* Reset some default margin and padding */
+body, div, p, h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0;
+}
+
+/* Basic styling for the main container */
+.main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Styling for the quiz and typing sections */
+.quiz, .typing {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.quiz h2, .typing h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.bloc {
+  background-color: #007BFF;
+  color: #fff;
+  padding: 15px;
+  border-radius: 5px;
+  text-align: center;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.bloc:hover {
+  background-color: #0056b3;
+}
+
+/* Styling for the table */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th, .table td {
+  padding: 10px 20px;
+  border: 1px solid #ccc;
+  text-align: left;
+}
+
+.table th {
+  background-color: #007BFF;
+  color: #fff;
+}
+
+.table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.table tr:hover {
+  background-color: #e0e0e0;
+  cursor: pointer;
+}
+
+.table input[type="submit"] {
+  background-color: #007BFF;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.table input[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+/* Add more styles as needed */
