@@ -41,8 +41,9 @@ const [position, setPosition] = useState<number>(0); //位置情報をstateに�
 
 const [typo, setTypo] = useState<number[]>(new Array(0));//打ち間違えた位置の配列
 
-let quizIndex : number = 0; //クイズの数
-let missType : number = 0; //ミスタイプの数
+const [quizIndex, setQuizIndex] = useState(0);
+const [missNum, setMissNum] = useState(0);
+
 
 const handleKey = (e: React.KeyboardEvent<HTMLDivElement>) => {
     if (typing) {//入力可能のとき
@@ -62,10 +63,10 @@ const handleKey = (e: React.KeyboardEvent<HTMLDivElement>) => {
             textSpans[position + 1].className = "current-letter";
             setPosition(position + 1);
         } else {//入力不可にする
-            quizIndex++;
-            missType += typo.length;
+            setQuizIndex(quizIndex+1);
+            setMissNum(missNum+typo.length);
             console.log(quizIndex);
-            console.log(missType);
+            console.log(missNum);
             refresh();
         }
         } else {//間違えたキーを入力したとき
@@ -92,6 +93,7 @@ const refresh = () => {
     for (const i of textSpans){
         i.className = "waiting-letters";
     }
+    textSpans[0].className = "current-letter";
     setPosition(0);//位置を最初に
     setTypo(new Array(0));//打ち間違えた位置の配列をリセット
     setTypingCount(TypingCount+1)
@@ -127,7 +129,9 @@ return (
                                 : position))
                         ).toFixed(2)}
                         %
-                    </div>
+                        </div>
+                        <div>トータル:　{missNum}</div>
+                        <div>問題数:　{quizIndex}</div>
                 </div>
                 <button onClick={() => setTyping(true)} className='bg-blue-500 hover:bg-blue-300 w-[80px] py-2 rounded text-[20px] mt-[15px] mb-[30px]'>{typing ? "タイプ中" : "はじめ"}</button>
             </div>
