@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import Image from 'next/image'
 import MenuButton from './components/menu_button'
 
@@ -15,7 +14,7 @@ export default function Home() {
         <div className="grid grid-cols-12 gap-2">
           <div className="col-span-1"></div>
           <div className="col-span-4 rounded-lg bg-amber-400">
-            <MenuButton title={ "クイズ" } discription={ "クイズです" } />
+            <MenuButton />
           </div>
           <div className="col-span-2"></div>
           <div className="col-span-4 rounded-lg bg-amber-500">
@@ -25,13 +24,5 @@ export default function Home() {
         </div>
       </div>
   </div>
-=======
-
-export default function Home() {
-  return (
-    <>
-      <div className="mt-[300px]">Hellow would</div>
-    </>
->>>>>>> a69cc147b0c6708932d002bb944cffb6e271e562
   )
 }
