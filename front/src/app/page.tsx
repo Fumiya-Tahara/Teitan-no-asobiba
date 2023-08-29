@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import Image from 'next/image'
 import MenuButton from './components/menu_button'
 
@@ -24,5 +25,13 @@ export default function Home() {
         </div>
       </div>
   </div>
+=======
+
+export default function Home() {
+  return (
+    <>
+      <div className="mt-[300px]">Hellow would</div>
+    </>
+>>>>>>> a69cc147b0c6708932d002bb944cffb6e271e562
   )
 }
