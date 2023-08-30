@@ -32,7 +32,6 @@
         array_push($quizArray2, $quizArray[$row]);
     }
     $json = json_encode($quizArray2, JSON_UNESCAPED_UNICODE);
-
-    $bytes = file_put_contents("../front/myfile.json", $json); 
-    echo $bytes;
+    
+    $bytes = file_put_contents("../front/public/quiz.json", $json); 
 ?>
