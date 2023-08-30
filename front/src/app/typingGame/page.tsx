@@ -6,6 +6,7 @@ import localImage from './components/16-.jpg'
 import { Typography } from '@material-ui/core';
 import Modal from '@material-ui/core/Modal/Modal';
 import Box from '@material-ui/core/Box/Box';
+import Link from 'next/link';
 
 
 interface TypingData {
@@ -19,9 +20,9 @@ const style ={
     left: '50%',
     transform : 'translate(-50%, -50%)',
     height: 400,
-    width: 400,
+    width: 700,
     bgcolor: 'background.paper',
-    border: '2px solid #000',
+    border: '3px solid #000',
     boxShadow: 24,
     p: 4,
 };
@@ -185,23 +186,21 @@ return (
                         ).toFixed(2)}
                         %
                         </div>
-                        {/* <div>トータル:　{missNum}</div>
-                        <div>問題数:　{quizIndex}</div> */}
                 </div>
                 <button onClick={() => setTyping(true)} className='bg-blue-500 hover:bg-blue-300 w-[80px] py-2 rounded text-[20px] mt-[15px] mb-[30px]'>{typing ? "タイプ中" : "はじめ"}</button>
             </div>
             <Image src={localImage} alt="image" className="h-[270px] w-[320px] mt-[-20px]"/>
-            {/* <button onClick={handleOpen}>Open</button> */}
             <Modal 
                 open={open}
                 onClose={handleClose}
                 aria-labelledby='modal-modal-title'
                 aria-describedby='modal-modal-description'
             >
-                <Box sx={style}>
-                    <Typography>
-                        ミスタイプ数：{missNum}
+                <Box sx={style} className='flex flex-col justify-center items-center'>
+                    <Typography className='text-center'>
+                        <div className='text-[50px] mt-[60px]'>ミスタイプ数：{missNum} </div>
                     </Typography>
+                    <Link href='../' className='bg-blue-500 hover:bg-blue-300 py-2 mt-[80px] text-[25px] w-[100px] text-center rounded font-bold text-white'>TOPへ</Link>
                 </Box>
             </Modal>
         </div>
