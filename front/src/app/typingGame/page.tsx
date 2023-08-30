@@ -3,12 +3,28 @@ import { useState, useEffect } from 'react';
 import './App.scss';
 import Image from "next/image";
 import localImage from './components/16-.jpg'
+import { Typography } from '@material-ui/core';
+import Modal from '@material-ui/core/Modal/Modal';
+import Box from '@material-ui/core/Box/Box';
 
 
 interface TypingData {
     sentencejp: string
     sentencero: string
   }
+
+const style ={
+    position : 'absolute' as 'absolute',
+    top: '50%',
+    left: '50%',
+    transform : 'translate(-50%, -50%)',
+    height: 400,
+    width: 400,
+    bgcolor: 'background.paper',
+    border: '2px solid #000',
+    boxShadow: 24,
+    p: 4,
+};
 
 function TypingAPi(): TypingData[] {
     const outputDataList: TypingData[] = [{
@@ -23,6 +39,34 @@ function TypingAPi(): TypingData[] {
         sentencejp: "グレタさんを敬いましょう",
         sentencero: "guretasannwouyamaimashou",
     },
+    // {
+    //     sentencejp: "エコバックを使いましょう",
+    //     sentencero: "ekobakkuwotukaimashou",
+    // },
+    // {
+    //     sentencejp: "牛さんを大切にしましょう",
+    //     sentencero: "usisannwotaisetunisimashou",
+    // },
+    // {
+    //     sentencejp: "小泉進次郎は小泉新次郎",
+    //     sentencero: "koizumisinnzirouhakoizumizinnzirou",
+    // },
+    // {
+    //     sentencejp: "水素自動車が欲しい",
+    //     sentencero: "suisozidoushagahosii",
+    // },
+    // {
+    //     sentencejp: "オーツミルクをバシャバシャ",
+    //     sentencero: "o-tumirukuwobashabasha",
+    // },
+    // {
+    //     sentencejp: "地球温暖化地球温暖",
+    //     sentencero: "tikyuuonndannkatikyuuonndannka",
+    // },
+    // {
+    //     sentencejp: "北海道沖縄まさかの佐賀県",
+    //     sentencero: "hokkaidouokinawamasakanosagakenn",
+    // },
   ];
   
   return outputDataList;
@@ -43,6 +87,11 @@ const [typo, setTypo] = useState<number[]>(new Array(0));//打ち間違えた位
 
 const [quizIndex, setQuizIndex] = useState(0);
 const [missNum, setMissNum] = useState(0);
+
+const [open, setOpen] = useState(false);
+
+
+const handleClose = () => setOpen(false);
 
 
 const handleKey = (e: React.KeyboardEvent<HTMLDivElement>) => {
@@ -87,22 +136,28 @@ const handleKey = (e: React.KeyboardEvent<HTMLDivElement>) => {
 
 
 const refresh = () => {
-    //文字の配列を取得
-    let textSpans = document.querySelector("#textbox")!.children;
-    //全ての文字のクラス名を変更
-    for (const i of textSpans){
-        i.className = "waiting-letters";
+    if(quizIndex+1 === 3){
+        console.log("発火")
+        setOpen(true);
+        return   
+    }else{
+        //文字の配列を取得
+        let textSpans = document.querySelector("#textbox")!.children;
+        //全ての文字のクラス名を変更
+        for (const i of textSpans){
+            i.className = "waiting-letters";
+        }
+        textSpans[0].className = "current-letter";
+        setPosition(0);//位置を最初に
+        setTypo(new Array(0));//打ち間違えた位置の配列をリセット
+        setTypingCount(TypingCount+1)
     }
-    textSpans[0].className = "current-letter";
-    setPosition(0);//位置を最初に
-    setTypo(new Array(0));//打ち間違えた位置の配列をリセット
-    setTypingCount(TypingCount+1)
 };
 
 return (
     <div className='flex justify-center h-screen bg-lime-300'>
         <div className="flex flex-col justify-center items-center border-[3px] border-black w-[900px] h-[580px] mt-[100px] bg-white">
-            <div className='text-center text-[50px] mt-[80px]'>{TypingArray[TypingCount].sentencejp}</div>
+            <div className='text-center text-[50px] mt-[80px]'>{open?"hellow would":TypingArray[TypingCount].sentencejp}</div>
             <div
                 onKeyDown={e => handleKey(e)}
                 className='flex flex-col justify-center items-center'>
@@ -130,12 +185,25 @@ return (
                         ).toFixed(2)}
                         %
                         </div>
-                        <div>トータル:　{missNum}</div>
-                        <div>問題数:　{quizIndex}</div>
+                        {/* <div>トータル:　{missNum}</div>
+                        <div>問題数:　{quizIndex}</div> */}
                 </div>
                 <button onClick={() => setTyping(true)} className='bg-blue-500 hover:bg-blue-300 w-[80px] py-2 rounded text-[20px] mt-[15px] mb-[30px]'>{typing ? "タイプ中" : "はじめ"}</button>
             </div>
             <Image src={localImage} alt="image" className="h-[270px] w-[320px] mt-[-20px]"/>
+            {/* <button onClick={handleOpen}>Open</button> */}
+            <Modal 
+                open={open}
+                onClose={handleClose}
+                aria-labelledby='modal-modal-title'
+                aria-describedby='modal-modal-description'
+            >
+                <Box sx={style}>
+                    <Typography>
+                        ミスタイプ数：{missNum}
+                    </Typography>
+                </Box>
+            </Modal>
         </div>
     </div>
     );
