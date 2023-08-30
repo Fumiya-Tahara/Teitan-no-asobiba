@@ -30,45 +30,46 @@ const style ={
 
 function TypingAPi(): TypingData[] {
     const outputDataList: TypingData[] = [{
-        sentencejp: "ごみを分別しよう",
-        sentencero: "gomiwobunnbetusiyou",
+        sentencejp: "洗濯物を詰め込めすぎない",
+        sentencero: "sentakumonowotumekomesuginai",
     },
     {
-        sentencejp: "二酸化炭素を減らしましょう",
-        sentencero: "nisannkatannsowoherasimashou",
+        sentencejp: "冷蔵庫に詰め込みすぎない",
+        sentencero: "reizoukonitumekomesuginai",
     },
     {
-        sentencejp: "グレタさんを敬いましょう",
-        sentencero: "guretasannwouyamaimashou",
+        sentencejp: "画面の明るさを調節",
+        sentencero: "gamennnoakarusawotyousetu",
     },
-    // {
-    //     sentencejp: "エコバックを使いましょう",
-    //     sentencero: "ekobakkuwotukaimashou",
-    // },
-    // {
-    //     sentencejp: "牛さんを大切にしましょう",
-    //     sentencero: "usisannwotaisetunisimashou",
-    // },
-    // {
-    //     sentencejp: "小泉進次郎は小泉新次郎",
-    //     sentencero: "koizumisinnzirouhakoizumizinnzirou",
-    // },
-    // {
-    //     sentencejp: "水素自動車が欲しい",
-    //     sentencero: "suisozidoushagahosii",
-    // },
-    // {
-    //     sentencejp: "オーツミルクをバシャバシャ",
-    //     sentencero: "o-tumirukuwobashabasha",
-    // },
-    // {
-    //     sentencejp: "地球温暖化地球温暖",
-    //     sentencero: "tikyuuonndannkatikyuuonndannka",
-    // },
-    // {
-    //     sentencejp: "北海道沖縄まさかの佐賀県",
-    //     sentencero: "hokkaidouokinawamasakanosagakenn",
-    // },
+    {
+        sentencejp: "いらないものはフリマアプリで出品",
+        sentencero: "iranaimonohahurimaapuridesyuppinn",
+    },
+    {
+        sentencejp: "マイボトルトを持ち歩く",
+        sentencero: "maibotoruwomotiaruku",
+    },
+    {
+        sentencejp: "プラスティックフリーの製品",
+        sentencero: "purasuthikkufuri-noseihinn",
+    },
+    {
+        sentencejp: "洗濯回数を減らす",
+        sentencero: "sentakukaisuuwoherasu",
+    },
+    {
+        sentencejp: "エアコン掃除で節電",
+        sentencero: "eakonsouzidesetuden",
+    },
+    {
+        sentencejp: "サステナブルな暮らし",
+        sentencero: "sasutenaburunakurasi",
+    },
+    {
+        sentencejp: "冷蔵庫はすぐ閉める",
+        sentencero: "reizoukohasugusimeru",
+    },
+    
   ];
   
   return outputDataList;
