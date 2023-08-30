@@ -23,7 +23,7 @@ export default function Home() {
           </div>
         </div>
         <div className="flex flex-row justify-evenly mt-[150px]" >
-          <Link href="" className="w-[300px] bg-red-500 hover:bg-red-300 rounded py-3 text-center font-bold text-[60px]">クイズ</Link>
+          <Link href="/quiz" className="w-[300px] bg-red-500 hover:bg-red-300 rounded py-3 text-center font-bold text-[60px]">クイズ</Link>
           <Link href="" className="w-[300px] bg-sky-500 hover:bg-sky-300 rounded py-3 text-center font-bold text-[60px]">タイピング</Link>
         </div>
       </div>
