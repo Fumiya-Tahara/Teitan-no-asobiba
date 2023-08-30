@@ -2,24 +2,19 @@ import Quiz from "./quiz";
 import { QuizData } from "./interface";
 
 function callQuizAPI() {
- return fetch("http://localhost:8888/api/quiz.php")
-  .then((data) => {
-    data.json();
-    })
+ return fetch("http://localhost:3000/quiz.json")
+  .then((res) => {    
+    return res.json();
+  })
 }
 
 async function page() {
-  const res = await callQuizAPI();
-  // console.log("res =",res)
-
-  console.log(await callQuizAPI());
-    
-
-
+  const res: QuizData[] = await callQuizAPI();
+  
 
   return (
     <>
-      <Quiz />
+      <Quiz data={res}/>
     </>
   )
 }

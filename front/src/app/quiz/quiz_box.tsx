@@ -6,9 +6,12 @@ interface RequestQuizData {
   quiz: QuizData
 }
 
-function QuizBox(quiz: RequestQuizData) {
+function QuizBox(quiz) {
   const [isAnswerd, setIsAnswered] = useState(false);
-  const quizList: QuizData = quiz.quiz
+  quiz = quiz["quiz"];
+
+  console.log(quiz);
+  
   
   useEffect(() => {setIsAnswered(false)}, [])
 
@@ -17,7 +20,7 @@ function QuizBox(quiz: RequestQuizData) {
       <div>
         <div>
           <div>解答</div>
-          <div>{quizList.rightAnswer}</div>
+          <div>{quiz.rightAnswer}</div>
         </div>
         <div>
           <div>あなたの回答</div>
@@ -26,7 +29,7 @@ function QuizBox(quiz: RequestQuizData) {
       </div>
       <div>
         <div>解説</div>
-        <div>{quizList.commentary}</div>
+        <div>{quiz.commentary}</div>
       </div>
     </div>
   );
@@ -36,8 +39,8 @@ function QuizBox(quiz: RequestQuizData) {
     <>
       <div>
         <div>
-          <div className="text-2xl font-bold">{quizList.title}</div>
-          <div className="text-xl">{quizList.problem}</div>
+          <div className="text-2xl font-bold">{quiz.title}</div>
+          <div className="text-lg">{quiz.problem}</div>
         </div>
         <div className="flex flex-col">
           <Image src={"/image/38-考える.png"} alt="考えるていたん・ブラックていたん" width={1000} height={1000}/>
@@ -48,27 +51,27 @@ function QuizBox(quiz: RequestQuizData) {
         <div>
           <ul className="mt-10 flex justify-around text-lg">
             <li>
-              <button  className="flex bg-slate-500 hover:bg-slate-400 text-white rounded-lg w-60 justify-center" onClick={() => setIsAnswered(true)}>
-                <div className="font-medium text-xl">A.</div>
-                <div>{quizList.choice1}</div>
+              <button  className="flex bg-slate-500 hover:bg-slate-400 text-white rounded-lg w-60 justify-center" onClick={() => setIsAnswered(true)} style={{aspectRatio: 1.618 / 1}}>
+                <div className="font-medium text-base">A.</div>
+                <div>{quiz.choices1}</div>
               </button>
             </li>
             <li>
-              <button className="flex bg-slate-500 hover:bg-slate-400 text-white rounded-lg w-60 justify-center" onClick={() => setIsAnswered(true)}>
-                <div className="font-medium text-xl">B.</div>
-                <div>{quizList.choice2}</div>
+              <button className="flex bg-slate-500 hover:bg-slate-400 text-white rounded-lg w-60 justify-center" onClick={() => setIsAnswered(true)} style={{aspectRatio: 1.618 / 1}}>
+                <div className="font-medium text-base">B.</div>
+                <div>{quiz.choices2}</div>
               </button>
             </li>
             <li>
-              <button className="flex bg-slate-500 hover:bg-slate-400 text-white rounded-lg w-60 justify-center" onClick={() => setIsAnswered(true)}>
-                <div className="font-medium text-xl">C.</div>
-                <div>{quizList.choice3}</div>
+              <button className="flex bg-slate-500 hover:bg-slate-400 text-white rounded-lg w-60 justify-center" onClick={() => setIsAnswered(true)} style={{aspectRatio: 1.618 / 1}}>
+                <div className="font-medium text-base">C.</div>
+                <div>{quiz.choices3}</div>
               </button>
             </li>
             <li>
-              <button className="flex bg-slate-500 hover:bg-slate-400 text-white rounded-lg w-60 justify-center" onClick={() => setIsAnswered(true)}>
-                <div className="font-medium text-xl">D.</div>
-                <div>{quizList.choice4}</div>
+              <button className="flex bg-slate-500 hover:bg-slate-400 text-white rounded-lg w-60 justify-center" onClick={() => setIsAnswered(true)} style={{aspectRatio: 1.618 / 1}}>
+                <div className="font-medium text-base">D.</div>
+                <div>{quiz.choices4}</div>
               </button>
             </li>
           </ul>

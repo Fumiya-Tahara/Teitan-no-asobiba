@@ -1,7 +1,10 @@
 <?php
+    header("Access-Control-Allow-Origin: *");
+    header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
+    header("Access-Control-Allow-Headers: Content-Type");
     $pdo = db();
     function db() {
-        $pdo=new PDO('mysql:host=localhost;dbname=teitan-no-asobiba;charset=utf8', 'root', '');
+        $pdo=new PDO('mysql:host=localhost;dbname=teitan-no-asobiba;charset=utf8', 'test', '');
         // $pdo = new PDO('mysql:host=mysql215.phy.lolipop.lan;dbname=LAA1530773-cafe22teamb;charset=utf8', 
         // 'LAA1530773', 'Fic20222023It');
         return $pdo;

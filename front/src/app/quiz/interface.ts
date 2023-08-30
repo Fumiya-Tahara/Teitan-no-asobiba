@@ -5,6 +5,6 @@ export interface QuizData {
     choice2: string
     choice3: string
     choice4: string
-    rightAnswer: string
+    rightAnswer: number
     commentary: string 
   }
