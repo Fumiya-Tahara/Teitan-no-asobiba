@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import './App.scss';
 import Image from "next/image";
 import localImage from './components/16-.jpg'
+import localImage2 from './components/W_Teitan_Black-teitan_Design_Manual_2016_004.jpg'
 import { Typography } from '@material-ui/core';
 import Modal from '@material-ui/core/Modal/Modal';
 import Box from '@material-ui/core/Box/Box';
@@ -190,6 +191,7 @@ return (
                 <button onClick={() => setTyping(true)} className='bg-blue-500 hover:bg-blue-300 w-[80px] py-2 rounded text-[20px] mt-[15px] mb-[30px]'>{typing ? "タイプ中" : "はじめ"}</button>
             </div>
             <Image src={localImage} alt="image" className="h-[270px] w-[320px] mt-[-20px]"/>
+            <Image src={localImage2} alt="image2" className="w-[180px] h-[20px] mb-[20px]"/>
             <Modal 
                 open={open}
                 onClose={handleClose}
