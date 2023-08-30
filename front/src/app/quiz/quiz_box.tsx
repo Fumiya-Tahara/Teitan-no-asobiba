@@ -18,14 +18,8 @@ function QuizBox(quiz) {
   const answerBox = (
     <div>
       <div>
-        <div>
-          <div>解答</div>
-          <div>{quiz.rightAnswer}</div>
-        </div>
-        <div>
-          <div>あなたの回答</div>
-          <div></div>
-        </div>
+        <div>解答</div>
+        <div>{quiz.right_answer}</div>
       </div>
       <div>
         <div>解説</div>
@@ -52,25 +46,25 @@ function QuizBox(quiz) {
           <ul className="mt-10 flex justify-around text-lg">
             <li>
               <button  className="flex bg-slate-500 hover:bg-slate-400 text-white rounded-lg w-60 justify-center" onClick={() => setIsAnswered(true)} style={{aspectRatio: 1.618 / 1}}>
-                <div className="font-medium text-base">A.</div>
+                <div className="font-medium text-base">1.</div>
                 <div>{quiz.choices1}</div>
               </button>
             </li>
             <li>
               <button className="flex bg-slate-500 hover:bg-slate-400 text-white rounded-lg w-60 justify-center" onClick={() => setIsAnswered(true)} style={{aspectRatio: 1.618 / 1}}>
-                <div className="font-medium text-base">B.</div>
+                <div className="font-medium text-base">2.</div>
                 <div>{quiz.choices2}</div>
               </button>
             </li>
             <li>
               <button className="flex bg-slate-500 hover:bg-slate-400 text-white rounded-lg w-60 justify-center" onClick={() => setIsAnswered(true)} style={{aspectRatio: 1.618 / 1}}>
-                <div className="font-medium text-base">C.</div>
+                <div className="font-medium text-base">3.</div>
                 <div>{quiz.choices3}</div>
               </button>
             </li>
             <li>
               <button className="flex bg-slate-500 hover:bg-slate-400 text-white rounded-lg w-60 justify-center" onClick={() => setIsAnswered(true)} style={{aspectRatio: 1.618 / 1}}>
-                <div className="font-medium text-base">D.</div>
+                <div className="font-medium text-base">4.</div>
                 <div>{quiz.choices4}</div>
               </button>
             </li>
