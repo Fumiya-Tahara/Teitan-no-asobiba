@@ -1,6 +1,6 @@
 <?php require './header.php';?>
 <div class="main">
-    <a href="./index.php">トップへ</a>
+    <a href="./index.php" class="button-link">トップへ</a>
 <?php	
     $pdo = db();
     if(!empty($_REQUEST['quiz_id'])){

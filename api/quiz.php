@@ -32,30 +32,6 @@
         array_push($quizArray2, $quizArray[$row]);
     }
     $json = json_encode($quizArray2, JSON_UNESCAPED_UNICODE);
+    
+    $bytes = file_put_contents("../front/public/quiz.json", $json); 
 ?>
-<!-- 
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-<meta charset="UTF-8">
-<title>Quiz Page</title>
-</head>
-<body>
-<script>
-// PHPから生成されたJSONデータを直接埋め込む
-var array = 
-<?php echo $json; ?>;
-
-array.forEach(elm => {
-    document.write(elm['title']+'<br>');
-    document.write(elm['problem']+'<br>');
-    document.write(elm['choices1']+'<br>');
-    document.write(elm['choices2']+'<br>');
-    document.write(elm['choices3']+'<br>');
-    document.write(elm['choices4']+'<br>');
-    document.write(elm['right_answer']+'<br>');
-    document.write('<br>'); // 各データの間に改行を追加
-});
-</script>
-</body>
-</html> -->

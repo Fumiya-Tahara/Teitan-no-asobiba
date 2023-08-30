@@ -12,16 +12,22 @@
                 問題削除
             </div>
         </a>
+        <a href="quiz_list.php">
+            <div class="bloc">
+                問題編集
+            </div>
+        </a>
     </div>
     <div class="typing">
-    <a href="typing_add.php">
-        <div class="bloc">
-            タイピング追加
-        </div>
-    </a>
-    <a href="typing_delete.php">
-        <div class="bloc">
-            タイピング削除
-        </div>
-    </a>
+        <h2>タイピング</h2>
+        <a href="typing_add.php">
+            <div class="bloc">
+                タイピング追加
+            </div>
+        </a>
+        <a href="typing_delete.php">
+            <div class="bloc">
+                タイピング削除
+            </div>
+        </a>
     </div>

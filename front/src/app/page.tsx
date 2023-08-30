@@ -21,9 +21,6 @@ export default function Home() {
           <Link href="" className="w-[300px] bg-sky-500 hover:bg-sky-300 rounded py-3 text-center font-bold text-[60px]">タイピング</Link>
         </div>
       </div>
-
-
-
     </>
   )
 }
