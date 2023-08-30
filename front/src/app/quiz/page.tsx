@@ -4,17 +4,18 @@ import { QuizData } from "./interface";
 function callQuizAPI() {
  return fetch("http://localhost:8888/api/quiz.php")
   .then((data) => {
-    
-  }
-    )
+    data.json();
+    })
 }
 
 async function page() {
-  // const res = await callQuizAPI();
+  const res = await callQuizAPI();
   // console.log("res =",res)
 
-  console.log(callQuizAPI());
+  console.log(await callQuizAPI());
     
+
+
 
   return (
     <>
