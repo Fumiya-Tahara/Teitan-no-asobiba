@@ -1,9 +1,9 @@
 <?php require './header.php';?>
 <div class="main">
-    <a href="./index.php">トップへ</a>
+    <a href="./index.php" class="button-link">トップへ</a>
 <?php	
     $pdo = db();
-    echo '<table clas="quiz">';
+    echo '<table>';
     foreach ($pdo->query('select * from quiz_tbl') as $row) {
         echo '<form action="quiz_update.php" method="post">';
         echo '<input type="hidden" name="quiz_id" value="'. $row['quiz_id']. '">';

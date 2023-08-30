@@ -5,6 +5,12 @@ body, div, p, h1, h2, h3, h4, h5, h6 {
   padding: 0;
 }
 
+/* Apply styles to links */
+a {
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
 /* Basic styling for the main container */
 .main {
   max-width: 1200px;
@@ -34,7 +40,6 @@ body, div, p, h1, h2, h3, h4, h5, h6 {
   text-align: center;
   margin-bottom: 10px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
 }
 
 .bloc:hover {
@@ -45,6 +50,7 @@ body, div, p, h1, h2, h3, h4, h5, h6 {
 .table {
   width: 100%;
   border-collapse: collapse;
+  margin-top: 20px;
 }
 
 .table th, .table td {
@@ -67,7 +73,8 @@ body, div, p, h1, h2, h3, h4, h5, h6 {
   cursor: pointer;
 }
 
-.table input[type="submit"] {
+/* Apply styles to the submit button */
+input[type="submit"] {
   background-color: #007BFF;
   color: #fff;
   border: none;
@@ -78,8 +85,95 @@ body, div, p, h1, h2, h3, h4, h5, h6 {
   transition: background-color 0.3s ease;
 }
 
-.table input[type="submit"]:hover {
+input[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+/* Stylish link button */
+.button-link {
+  display: inline-block;
+  background-color: #007BFF;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button-link:hover {
+  background-color: #0056b3;
+}
+
+/* Styling for the "問題追加" section */
+.news_add {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  margin-top: 20px;
+}
+
+.news_add .input_title,
+.news_add .input_text,
+.news_add input[type="text"],
+.news_add textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+.news_add textarea {
+  height: 150px;
+}
+
+.news_add input[type="submit"] {
+  background-color: #007BFF;
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.news_add input[type="submit"]:hover {
   background-color: #0056b3;
 }
 
 /* Add more styles as needed */
+.input_quiz,
+.input_text {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+.input_textarea {
+  height: 150px;
+}
+
+.input_quiz[type="submit"] {
+  background-color: #007BFF;
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.input_quiz[type="submit"]:hover {
+  background-color: #0056b3;
+}
