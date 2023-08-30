@@ -2,7 +2,7 @@
 export default function Home() {
   return (
     <>
-      <div className="mt-[300px]">Hellow would</div>
+      <div className="">Hellow would</div>
     </>
   )
 }
